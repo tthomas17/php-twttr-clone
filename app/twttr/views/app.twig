@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>twttr clone</title>
+  <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+</head>
+<body>
+    {% block nav %}
+      {% include 'nav.twig' %}
+    {% endblock nav %}
+
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Welcome to Twttr!</h1>
+        <p>One Page Twitter clone using PHP and MySQL implemented using Silex microframework.</p>
+        <div class='row'>
+          <div class='col-sm-6 col-sm-offset-3'>
+            {% block postForm %}
+              {% include 'postForm.twig' %}
+            {% endblock postForm %}
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="container">
+    {% for post in posts %}
+      <div class="panel panel-default">
+        <div class="panel-body">
+          {{post.message_text}}<br/>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</body>
+</html>
